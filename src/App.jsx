@@ -20,7 +20,6 @@ function App () {
     setValue((prevState) => {
       return { ...prevState, [label]: val }
     })
-    console.log(value.dynamic)
   }
   const [value3, setValue3] = useState(3232)
 
