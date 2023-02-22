@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { MAvatar, MAvatarGroup, MDivider, MButton, MEllipsis, MInput, MIcons, MTag, MDynamicInput } from '@/components'
+import { MAvatar, MAvatarGroup, MDivider, MButton, MEllipsis, MInput, MIcons, MTag, MDynamicInput, MCollapse } from '@/components'
 import { MCloseIcon, MMinusIcon } from '@/components/icon'
 
 // setColorOptions({
@@ -112,7 +112,7 @@ function App () {
       <MTag type="outline" color="emphasizePurple">tag</MTag>
       <MTag type="outline" color="emphasizeOrange" closeable>tag</MTag>
     </div>,
-     <div key="dynamicInput">
+    <div key="dynamicInput">
      <MDynamicInput
        label="dynamic"
        value={value.dynamic}
@@ -133,7 +133,12 @@ function App () {
         123123
       </MDynamicInput>
      {value.dynamic}
-   </div>
+    </div>,
+    <div key="collapse">
+      <MCollapse margin={10}>
+        123
+      </MCollapse>
+    </div>
   ])
 }
 

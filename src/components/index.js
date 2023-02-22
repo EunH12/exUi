@@ -2,6 +2,7 @@ export { MAvatar, MAvatarGroup } from './Avatar'
 
 export { MDivider } from './Divider'
 export { MEllipsis } from './Ellipsis'
+export { MCollapse } from './Collapse'
 
 export { MButton } from './Button'
 export { MInput } from './Input'
