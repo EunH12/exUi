@@ -135,7 +135,7 @@ function App () {
      {value.dynamic}
     </div>,
     <div key="collapse">
-      <MCollapse margin={10}>
+      <MCollapse title="테스트" margin={10}>
         123
       </MCollapse>
     </div>
