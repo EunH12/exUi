@@ -5,7 +5,7 @@ import { StyleCollapse, StyleCollapseChild } from './style'
 
 Collapse.propTypes = {
   accordion: PropTypes.bool,
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   margin: PropTypes.number,
   children: PropTypes.node
 }
