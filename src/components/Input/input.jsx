@@ -19,6 +19,8 @@ Input.propTypes = {
   formatter: PropTypes.string,
   isCount: PropTypes.bool,
   maxLength: PropTypes.number,
+  prefix: PropTypes.string,
+  suffix: PropTypes.string,
 
   handleChange: PropTypes.func,
   error: PropTypes.bool,
@@ -113,7 +115,41 @@ function Input (props) {
       return false
     }
   }
-
+  const prefixSet = Array.isArray(props?.children)
+  function PrefixSet () {
+    let prefixNode = null
+    if (props.prefix) {
+      prefixNode = props.prefix
+    } else if (props?.children && prefixSet) {
+      prefixNode = props?.children?.find(item => item.key === 'prefix')
+    } else if (props?.children?.key === 'prefix') {
+      prefixNode = props.children
+    }
+    return (
+      prefixNode
+        ? <InputPrefix>
+          {prefixNode}
+        </InputPrefix>
+        : false
+    )
+  }
+  function SuffixSet () {
+    let suffixNode = null
+    if (props.suffix) {
+      suffixNode = props.suffix
+    } else if (props?.children && prefixSet) {
+      suffixNode = props?.children?.find(item => item.key === 'suffix')
+    } else if (props?.children?.key === 'suffix') {
+      suffixNode = props.children
+    }
+    return (
+      suffixNode
+        ? <InputPrefix>
+          {suffixNode}
+        </InputPrefix>
+        : false
+    )
+  }
   // input props set
   const inputProps = {
     ...props
@@ -126,13 +162,9 @@ function Input (props) {
             <CountComponent/>
         </TextareaWrap>
       : <InputWrap {...props} className={[props.disabled ? 'disabled' : '', props.error ? 'error' : ''].join('')}>
-          <InputPrefix>
-            {props?.children?.find(item => item.key === 'prefix')}
-          </InputPrefix>
+          <PrefixSet/>
           <InputCss {...inputProps} value={value} onChange={handleChange} />
-          <InputPrefix>
-            {props?.children?.find(item => item.key === 'suffix')}
-          </InputPrefix>
+          <SuffixSet/>
           <CountComponent/>
         </InputWrap>
   )

@@ -78,13 +78,14 @@ function App () {
       />
       <MInput
         label="prefix"
+        suffix="원"
         isCount
         maxLength={30}
         value={value.prefix}
         handleChange={(value) => test(value, 'prefix')}
       >
         <span key="prefix">123</span>
-        <span key="suffix">원</span>
+        <span key="suffix">일</span>
       </MInput>
       <MInput
         type="textarea"
@@ -135,7 +136,8 @@ function App () {
      {value.dynamic}
     </div>,
     <div key="collapse">
-      <MCollapse title="테스트" margin={10}>
+      <MCollapse title="테스트" margin={10} isIcon>
+        <div name="preIcon">아이콘</div>
         123
       </MCollapse>
     </div>
