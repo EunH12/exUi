@@ -137,7 +137,7 @@ function App () {
     </div>,
     <div key="collapse">
       <MCollapse title="테스트" margin={10} isIcon>
-        <div name="preIcon">아이콘</div>
+        {/* <MIcons key="preIcon" name="link" /> */}
         123
       </MCollapse>
     </div>

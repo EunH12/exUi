@@ -7,6 +7,7 @@ import MLinkIcon from './iconList/link'
 import MCloseIcon from './iconList/close'
 import MMinusIcon from './iconList/minus'
 import MPlusIcon from './iconList/plus'
+import MArrowRightIcon from './iconList/arrow-right'
 
 Icon.propTypes = {
   size: PropTypes.number,
@@ -25,7 +26,8 @@ const componentList = {
   link: MLinkIcon,
   close: MCloseIcon,
   minus: MMinusIcon,
-  plus: MPlusIcon
+  plus: MPlusIcon,
+  arrowRight: MArrowRightIcon
 }
 
 function Icon (props) {

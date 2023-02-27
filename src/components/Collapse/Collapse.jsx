@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { setColor } from '@/components/Theme'
-import { StyleCollapse, StyleCollapseChild, PreIcons } from './style'
+import { MArrowRightIcon } from '@/components/icon'
+import { StyleCollapseChild, PreIcons, TitlePart } from './style'
 
 Collapse.propTypes = {
   accordion: PropTypes.bool,
@@ -19,17 +20,27 @@ function Collapse (props) {
   const [openValue, setValueOpenValue] = useState(false)
   function PreIcon () {
     if (props.isIcon) {
-      return <PreIcons isIcon={props.isIcon}>
-        오
+      let iconNode
+      if (Array.isArray(props.children)) {
+        iconNode = props?.children?.find(item => item.key === 'preIcon')
+      } else if (props?.children?.key === 'iconNode') {
+        iconNode = props.children
+      } else {
+        iconNode = <MArrowRightIcon size={14}/>
+      }
+      return <PreIcons isIcon={props.isIcon} className={openValue ? 'rotate' : ''}>
+        {iconNode}
       </PreIcons>
     } else {
       return false
     }
   }
   return (
-    <StyleCollapse margin={props.margin} onClick={() => setValueOpenValue(!openValue)}>
-      <PreIcon/>
-      {props.title}
+    <>
+      <TitlePart onClick={() => setValueOpenValue(!openValue)}>
+        <PreIcon/>
+        {props.title}
+      </TitlePart>
       {
         openValue
           ? <StyleCollapseChild>
@@ -37,7 +48,7 @@ function Collapse (props) {
             </StyleCollapseChild>
           : ''
       }
-    </StyleCollapse>
+    </>
   )
 }
 export default Collapse
