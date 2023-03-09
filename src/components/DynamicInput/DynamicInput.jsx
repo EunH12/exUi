@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import MInput from '../Input/input'
 import MButton from '../Button/button'
@@ -28,14 +28,12 @@ DynamicInput.defaultProps = {
 
 function DynamicInput (props) {
   const [valueList, setValue] = useState(props.value)
-  const handleChange = (value, index) => {
+  const handleChange = useCallback((value, index) => {
     setValue((prevState) => {
       const setData = [...prevState]
       setData[index] = value
       return setData
     })
-  }
-  useEffect(() => {
     props?.handleChange(valueList)
   }, [valueList])
   const inputRemove = (i) => {

@@ -16,19 +16,19 @@ Collapse.defaultProps = {
   lineColor: setColor.gray200
 }
 
-function Collapse (props) {
+function Collapse ({ children, title, isIcon }) {
   const [openValue, setValueOpenValue] = useState(false)
   function PreIcon () {
-    if (props.isIcon) {
+    if (isIcon) {
       let iconNode
-      if (Array.isArray(props.children)) {
-        iconNode = props?.children?.find(item => item.key === 'preIcon')
-      } else if (props?.children?.key === 'iconNode') {
-        iconNode = props.children
+      if (Array.isArray(children)) {
+        iconNode = children?.find(item => item.key === 'preIcon')
+      } else if (children?.key === 'iconNode') {
+        iconNode = children
       } else {
         iconNode = <MArrowRightIcon size={14}/>
       }
-      return <PreIcons isIcon={props.isIcon} className={openValue ? 'rotate' : ''}>
+      return <PreIcons isIcon={isIcon} className={openValue ? 'rotate' : ''}>
         {iconNode}
       </PreIcons>
     } else {
@@ -39,12 +39,12 @@ function Collapse (props) {
     <>
       <TitlePart onClick={() => setValueOpenValue(!openValue)}>
         <PreIcon/>
-        {props.title}
+        {title}
       </TitlePart>
       {
         openValue
           ? <StyleCollapseChild>
-              {props.children}
+              {children}
             </StyleCollapseChild>
           : ''
       }
