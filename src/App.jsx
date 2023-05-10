@@ -1,12 +1,13 @@
 import { useState, useCallback, useMemo } from 'react'
 import { MAvatar, MAvatarGroup, MDivider, MButton, MEllipsis, MInput, MIcons, MTag, MDynamicInput, MCollapse } from '@/components'
 import { MCloseIcon, MMinusIcon } from '@/components/icon'
+import { setColorOptions } from '@/components/Theme'
 
-// setColorOptions({
-//   primary: '#23412f',
-//   warning: '#d13c55',
-//   secondary: '#a59957'
-// })
+setColorOptions({
+  primary: '#23412f',
+  warning: '#d13c55',
+  secondary: '#a59957'
+})
 
 function Inputs () {
   const [value, setValue] = useState({
@@ -105,7 +106,7 @@ function App () {
       <MAvatar>
         123
       </MAvatar>
-      <MAvatarGroup size={60} max={4} data={[{ src: 'test.jpg', backgroundColor: 'red' }, { backgroundColor: 'red', name: '오와' }, { name: '주', backgroundColor: 'blue' }, {}, {}, {}, {}]} />
+      <MAvatarGroup size={60} max={8} data={[{ src: 'test.jpg', backgroundColor: 'red' }, { backgroundColor: 'red', name: '오와' }, { name: '주', backgroundColor: 'blue' }, { name: '수', backgroundColor: 'blue' }, {}, {}, {}, {}]} />
     </div>,
     <div key="divider">
       <MDivider />

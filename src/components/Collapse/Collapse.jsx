@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { setColor } from '@/components/Theme'
-import { MArrowRightIcon } from '@/components/icon'
+import MArrowRightIcon from '@/components/Icon/iconList/arrow-right'
 import { StyleCollapseChild, PreIcons, TitlePart } from './style'
 
 Collapse.propTypes = {
